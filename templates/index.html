@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction - 15 Selected Features</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔬 Breast Cancer Prediction</h1>
+            <p>ANOVA Feature Selection + Ensemble Learning</p>
+        </div>
+
+        <div class="info-banner">
+            📊 Using 15 most important features selected by ANOVA F-test
+        </div>
+
+        <div class="content">
+            <div class="model-selector">
+                <h3>🤖 Select Prediction Model</h3>
+                <div class="model-options">
+                    <div class="model-option">
+                        <input type="radio" id="ensemble" name="model" value="ensemble" checked>
+                        <label for="ensemble">🎯 Ensemble (Naive Bayes + Logistic Regression)</label>
+                    </div>
+                    <div class="model-option">
+                        <input type="radio" id="naive_bayes" name="model" value="naive_bayes">
+                        <label for="naive_bayes">📊 Naive Bayes</label>
+                    </div>
+                    <div class="model-option">
+                        <input type="radio" id="logistic" name="model" value="logistic">
+                        <label for="logistic">📈 Logistic Regression</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" onclick="loadSampleData()">📊 Load Sample Data</button>
+                <button class="btn btn-secondary" onclick="clearForm()">🗑️ Clear Form</button>
+                <button class="btn btn-secondary" onclick="showSelectedFeatures()">📋 Show Selected Features</button>
+            </div>
+
+            <form id="predictionForm">
+                <div id="formFields"></div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn">🔍 Predict Diagnosis</button>
+                </div>
+            </form>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Analyzing data...</p>
+            </div>
+
+            <div id="result" class="result"></div>
+        </div>
+
+        <div class="footer">
+            <p>⚠️ This is a demonstration tool for educational purposes only. Always consult healthcare professionals for medical advice.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
